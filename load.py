@@ -47,10 +47,10 @@ def update_status() -> None:
   label["text"] = "Fuel levels"
   if main_tank is None or reservoir is None:
     if main_tank is None and reservoir is None:
-      status["text"] = "waiting for data …"
+      status["text"] = "waiting for data"
     else:
       # maybe add error handling for this weird edge case, should it ever exist …
       status["text"] = "ERROR"
-      logger.error("One of main tank and reservoir fuel levels is None, the other isn’t … WTF?")
+      logger.error("One of main tank and reservoir fuel levels is None, the other isn't.")
   else:
-    status["text"] = f'{round(main_tank,3)} t (main), {round(reservoir,3)} t (reservoir)'
+    status["text"] = f'{round(main_tank,3)} t (main), {round(reservoir,3)} t (reserve)'
